@@ -1,0 +1,135 @@
+
+.name {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Ensure the container covers the entire viewport height */
+    background-color:pink;
+}
+
+/* Style the input box (optional) */
+input {
+    padding: 10px;
+    width: 200px;
+    border: 2px solid #333; /* Add a border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f0f0f0; /* Background color */
+    background:white; /* Text color */
+    
+}
+
+#name.error-msg{
+    margin:10px 0;
+    display: block;
+    background:crimson;
+    color:#fff;
+    border-radius:5px;
+    font-size:20px;
+    padding-top:10px;
+    
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding:14px 20px;
+    display: flex;
+    background: rgb(235, 221, 231);
+    text-decoration: none;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+
+}
+.logo{
+    
+    width: 250px;
+    height: 200px;
+}
+
+.top1{
+    padding-top: 80px;
+    padding-inline-start: 2px;
+    background-color:rgb(255, 255, 255);
+    column-width: 500px;
+}
+
+ul{
+    background-color: black;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    
+    
+}
+li a{
+
+    color: white;
+    align-items: center;
+    ori
+}
+.body
+{
+    margin: 0;
+    padding: 0;
+    background-color: #b2e0df;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items :center;
+}
+
+.search-container{
+    background: #fff;
+    margin-top: 50px;
+    height: 30px;
+    border-radius: 30px;
+    padding: 25px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.8s;
+    
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+}
+
+.search-container:hover > .search-input{
+    width: 400px;
+}
+
+.search-container .search-input{
+    background: transparent;
+    border: none;
+    outline:none;
+    width: 0px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: 0.8s;
+
+}
+
+.search-container .search-btn .fas{
+    color: #5cbdbb;
+}
+
+
+
+.search-container:hover{
+  animation: hoverShake 0.15s linear 3;
+}
+
+
+nav.name{
+    text-align: left;
+}
+
+.card-img-top{
+
+    width:100%;
+    height:200px;
+}
