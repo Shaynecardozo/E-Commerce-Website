@@ -128,8 +128,9 @@ nav.name{
     text-align: left;
 }
 
-.card-img-top{
-
-    width:100%;
-    height:200px;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:boredr-box;
 }
+

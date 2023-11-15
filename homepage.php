@@ -1,3 +1,7 @@
+<?php
+include('includes/connect.php')
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,11 +24,18 @@
         }
         ul.main{
             list-style-type:none;
-            padding:20px;
+            padding:5px;
             margin:0;
-            background-color:#E8318A;
+            background-color:#3A9BDC;
             text-align:center;
 
+        }
+        form.d-flex{
+          list-style-type:none;
+          padding:5px;
+            margin:0;
+            background-color:#3A9BDC;
+            text-align:center;
         }
         li{
             display:inline;
@@ -54,7 +65,13 @@
         <li><a href="">About</a></li>
         <li><a href="">Cart</a></li>
         <li><a href="">Contact</a></li>
+      
        </ul>
+       <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" arial-label="Search" name="search_data">
+        <!-- second child<button class="btn btn-outline-bright" type="submit">search</button> -->
+        <input type="submit" value="Search" class="btn btn-outline-light" name="search_data_product">
+       </form>
     </nav>
 
  <!-- second child
@@ -144,6 +161,17 @@
   </div>
 </div>
             </div>
+            <div class="col-md-4 mb-2">
+            <div class="card" style="width: 18rem;">
+             <img src="./images/d2.jpeg" class="card-img-top" alt="...">
+             <div class="card-body">
+             <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-info">Add to Cart</a>
+    <a href="#" class="btn btn-secondary">View more</a>
+  </div>
+</div>
+            </div>
             
            </div>
         </div>
@@ -153,14 +181,19 @@
                 <li class="nav-item bg-info">
                   <a href="#" class="nav-link text-light"><h4>Delivery brands</h4></a>  
                 </li>
-                <li class="nav-item ">
-                  <a href="#" class="nav-link text-light">Brand2</a>  
-                </li>
-                <li class="nav-item ">
-                  <a href="#" class="nav-link text-light">Brand3</a>  
-                </li>
-                <li class="nav-item ">
-                  <a href="#" class="nav-link text-light">Brand4</a>  
+                <?php
+                $select_brands="Select * from `brands`";
+                $result_brands=mysqli_query($con, $select_brands);
+                while($row_data=mysqli_fetch_assoc( $result_brands)){
+                  $brand_title=$row_data['brand_title'];
+                  $brand_id=$row_data['brand_id'];
+                  echo "<li class='nav-item'>
+                  <a href='homepage.php?brand=$brand_id' class'nav-link text-light'>  $brand_title</a>  
+                </li>";
+
+                }
+                ?>
+                  
                 </li>
             </ul>
 
@@ -169,15 +202,20 @@
              <ul class="navbar-nav me-auto text-center">
                 <li class="nav-item bg-info">
                   <a href="#" class="nav-link text-light"><h4>Categories</h4></a>  
-                </li>
-                <li class="nav-item ">
-                  <a href="#" class="nav-link text-light">Brand2</a>  
-                </li>
-                <li class="nav-item ">
-                  <a href="#" class="nav-link text-light">Brand3</a>  
-                </li>
-                <li class="nav-item ">
-                  <a href="#" class="nav-link text-light">Brand4</a>  
+                  <?php
+                $select_category="Select * from `category`";
+                $result_category=mysqli_query($con,$select_category);
+                while($row_data=mysqli_fetch_assoc( $result_category)){
+                  $category_title=$row_data['category_title'];
+                  $category_id=$row_data['category_id'];
+                  echo "<li class='nav-item'>
+                  <a href='homepage.php?category=$category_id' class'nav-link text-light'>  $category_title</a>  
+                </li>";
+
+                }
+                ?>
+               
+
                 </li>
             </ul>
             
