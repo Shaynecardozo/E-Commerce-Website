@@ -62,12 +62,11 @@ include('includes/connect.php')
        <ul class="main">
         <li><a href="">Home</a></li>
         <li><a href="">Product</a></li>
-        <li><a href="">About</a></li>
         <li><a href="">Cart</a></li>
-        <li><a href="">Contact</a></li>
+       
       
        </ul>
-       <form class="d-flex">
+       <form class="d-flex" action="search_product.php" method="get">
         <input class="form-control me-2" type="search" placeholder="Search" arial-label="Search" name="search_data">
         <!-- second child<button class="btn btn-outline-bright" type="submit">search</button> -->
         <input type="submit" value="Search" class="btn btn-outline-light" name="search_data_product">
