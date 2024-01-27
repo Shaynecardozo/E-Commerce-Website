@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <form method="post" action="exam.php">
+            enter your name:
+            <input type="text" name="fname" id="fname"><br>
+            enter your lastname:
+            <input type="text" name="lname" id="lname"><br>
+            enter your phone number:
+            <input type="number" name="number" id="num"><br>
+            <input type="submit" value="submit" name="save_btn">
+            <br>
+        </form>
+
+        <?php
+        $fname=$_POST['fname'];
+        $lname=$_POST['lname'];
+        $number=$_POST['number'];
+
+        if(isset($_POST['save_btn']))
+        {
+            $query="INSERT INTO exam (id,fname,lname,number) VALUES ('$fname','$lname','$number')";
+            $data=mysqli_query($conn,$query);
+            echo "Db updated";
+        }
+        else
+        {
+            echo "THERE IS AN ARROR";
+        }
+
+
+
+
+        ?>
+
+    </body>
+</html>

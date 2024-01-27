@@ -18,9 +18,6 @@ if(isset($_POST['insert_cat'])){
   }
 }
 }
-
-
-
 ?>
 <h2 class="text-center">Insert Categories</h2>
 <form action="" method="post" class="mb-2">

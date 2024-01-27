@@ -1,5 +1,8 @@
 <?php
-include('includes/connect.php')
+
+include('includes/connect.php');
+include('functions/common_function.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -60,19 +63,22 @@ include('includes/connect.php')
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <nav>
        <ul class="main">
-        <li><a href="">Home</a></li>
-        <li><a href="">Product</a></li>
-        <li><a href="">Cart</a></li>
-       
-      
+        <li><a href="homepage.php">Home</a></li>
+        <li><a href="display_all.php">Product</a></li>
+      <li><a href="cart.php">Cart(<?php
+      cart_items();?>)</a></li>
+        <li><a href="#">Total price:<?php
+        total_cart_price();?>/-</a></li>
        </ul>
        <form class="d-flex" action="search_product.php" method="get">
         <input class="form-control me-2" type="search" placeholder="Search" arial-label="Search" name="search_data">
-        <!-- second child<button class="btn btn-outline-bright" type="submit">search</button> -->
         <input type="submit" value="Search" class="btn btn-outline-light" name="search_data_product">
        </form>
     </nav>
-
+<!--calling cart function-->
+       <?php 
+       cart();
+       ?>
  <!-- second child
  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
     <ul class="navbar-nav me-auto">
@@ -90,90 +96,22 @@ include('includes/connect.php')
 
 
 
-    <div class="row">
+    <div class="row px-1">
         <div class="col-md-10">
             <!-- products-->
            <div class="row">
-            <div class="col-md-4 mb-2">
-            <div class="card" style="width: 18rem;">
-  <img src="./images/d3.jpeg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-info">Add to Cart</a>
-    <a href="#" class="btn btn-secondary">View more</a>
+            <!-- fetching products-->
+
+             <?php
+           getproducts();
+           
+            ?> 
+     
+ <!-- row end-->
   </div>
+  <!-- col end-->
 </div>
-            </div>
-           <div class="col-md-4 mb-2">
-            <div class="card" style="width: 18rem;">
-  <img src="./images/d1.jpeg" cl ass="card-img-top"  style="width:100%; height:200px; object-fit:contain;" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-info">Add to Cart</a>
-    <a href="#" class="btn btn-secondary">View more</a>
-  </div>
-</div>
-            </div>
-            <div class="col-md-4 mb-2">
-            <div class="card" style="width: 18rem;">
-             <img src="./images/d2.jpeg" class="card-img-top" alt="...">
-             <div class="card-body">
-             <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-info">Add to Cart</a>
-    <a href="#" class="btn btn-secondary">View more</a>
-  </div>
-</div>
-            </div>
-            <div class="col-md-4 mb-2">
-            <div class="card" style="width: 18rem;">
-             <img src="./images/d2.jpeg" class="card-img-top" alt="...">
-             <div class="card-body">
-             <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-info">Add to Cart</a>
-    <a href="#" class="btn btn-secondary">View more</a>
-  </div>
-</div>
-            </div>
-            <div class="col-md-4 mb-2">
-            <div class="card" style="width: 18rem;">
-             <img src="./images/d2.jpeg" class="card-img-top" alt="...">
-             <div class="card-body">
-             <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-info">Add to Cart</a>
-    <a href="#" class="btn btn-secondary">View more</a>
-  </div>
-</div>
-            </div>
-            <div class="col-md-4 mb-2">
-            <div class="card" style="width: 18rem;">
-             <img src="./images/d2.jpeg" class="card-img-top" alt="...">
-             <div class="card-body">
-             <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-info">Add to Cart</a>
-    <a href="#" class="btn btn-secondary">View more</a>
-  </div>
-</div>
-            </div>
-            <div class="col-md-4 mb-2">
-            <div class="card" style="width: 18rem;">
-             <img src="./images/d2.jpeg" class="card-img-top" alt="...">
-             <div class="card-body">
-             <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-info">Add to Cart</a>
-    <a href="#" class="btn btn-secondary">View more</a>
-  </div>
-</div>
-            </div>
             
-           </div>
-        </div>
         <div class="col-md-2 bg-secondary p-0">
             <!-- brands to be displayed-->
             <ul class="navbar-nav me-auto text-center">
@@ -181,16 +119,8 @@ include('includes/connect.php')
                   <a href="#" class="nav-link text-light"><h4>Delivery brands</h4></a>  
                 </li>
                 <?php
-                $select_brands="Select * from `brands`";
-                $result_brands=mysqli_query($con, $select_brands);
-                while($row_data=mysqli_fetch_assoc( $result_brands)){
-                  $brand_title=$row_data['brand_title'];
-                  $brand_id=$row_data['brand_id'];
-                  echo "<li class='nav-item'>
-                  <a href='homepage.php?brand=$brand_id' class'nav-link text-light'>  $brand_title</a>  
-                </li>";
-
-                }
+                  getbrands();
+                
                 ?>
                   
                 </li>
@@ -202,28 +132,27 @@ include('includes/connect.php')
                 <li class="nav-item bg-info">
                   <a href="#" class="nav-link text-light"><h4>Categories</h4></a>  
                   <?php
-                $select_category="Select * from `category`";
-                $result_category=mysqli_query($con,$select_category);
-                while($row_data=mysqli_fetch_assoc( $result_category)){
-                  $category_title=$row_data['category_title'];
-                  $category_id=$row_data['category_id'];
-                  echo "<li class='nav-item'>
-                  <a href='homepage.php?category=$category_id' class'nav-link text-light'>  $category_title</a>  
-                </li>";
-
-                }
+                  getcategory();
                 ?>
-               
-
                 </li>
             </ul>
             
             
-        </div>   
+        </div>  
+        <?php
+                
+                search_product();
+                 get_unique_categories();
+                 get_unique_brands();
+                 //$ip = getIPAddress();  
+                 //echo 'User Real IP Address - '.$ip;    
+
+                ?>
+                
     </div>
 
        <!-- last child-->
-       <div class="bg-info p-3 text-center">
-        <p>All rights reserved @- Designed by Shayne 2023</p>
+       <!--include footer--->
+        <?php include("./includes/footer.php")?>
 </body>
 </html>
